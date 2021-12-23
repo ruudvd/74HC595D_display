@@ -27,6 +27,7 @@ namespace esphome
             ESP_LOGCONFIG(TAG, "Setting up LedDisplay...");
 
             this->stepsleft_ = 0;
+/*
             for (int chip_line = 0; chip_line < this->num_chip_lines_; chip_line++)
             {
                 std::vector<bool> vec(1);
@@ -34,21 +35,7 @@ namespace esphome
                 // Initialize buffer with 0 for display so all non written pixels are blank
                 this->led_displaybuffer_[chip_line].resize(get_width_internal(), 0);
             }
-            /*
-            // let's assume the user has all 8 digits connected, only important in daisy chained setups anyway
-            this->send_to_all_(MAX7219_REGISTER_SCAN_LIMIT, 7);
-            // let's use our own ASCII -> led pattern encoding
-            this->send_to_all_(MAX7219_REGISTER_DECODE_MODE, 0);
-            // No display test with all the pixels on
-            this->send_to_all_(MAX7219_REGISTER_DISPLAY_TEST, MAX7219_NO_DISPLAY_TEST);
-            // SET Intsity of display
-            this->send_to_all_(MAX7219_REGISTER_INTENSITY, this->intensity_);
-            // this->send_to_all_(MAX7219_REGISTER_INTENSITY, 1);
-            this->display();
-            // power up
-            this->send_to_all_(MAX7219_REGISTER_SHUTDOWN, 1);
-            */
-
+*/
             // set IO to output
             for (auto row : rows)
             {
@@ -69,6 +56,7 @@ namespace esphome
             {
                 std::reverse(rows.begin(), rows.end());
             }
+            ESP_LOGCONFIG(TAG, "Setting up LedDisplay finished");
         }
 
         void LedDisplayComponent::dump_config()
@@ -289,11 +277,12 @@ namespace esphome
 
         void LedDisplayComponent::send_char(uint8_t chip, uint8_t data)
         {
-            /*
+
             // get this character from PROGMEM
             for (uint8_t i = 0; i < 8; i++)
-                this->led_displaybuffer_[0][chip * 8 + i] = progmem_read_byte(&MAX7219_DOT_MATRIX_FONT[data][i]);
-       */
+            {
+                this->led_displaybuffer_[0][chip * 8 + i] = progmem_read_byte(&LEDDISPLAY_DOT_MATRIX_FONT[data][i]);
+            }
         } // end of send_char
 
         // send one character (data) to position (chip)
