@@ -2,7 +2,6 @@
 #include "esphome/core/log.h"
 #include "esphome/core/helpers.h"
 #include "esphome/core/hal.h"
-#include "max7219font.h"
 
 #define SET_LED(value)                                      \
     gpio_set_level(ShiftData, m_inverted ? !value : value); \
