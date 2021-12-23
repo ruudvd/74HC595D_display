@@ -113,19 +113,19 @@ namespace esphome
             optional<ledDisplay_writer_t> writer_local_{};
 
             // gpio
-            static const GPIOPin ROW1 = GPIO_NUM_12;
-            static const GPIOPin ROW2 = GPIO_NUM_14;
-            static const GPIOPin ROW3 = GPIO_NUM_27;
-            static const GPIOPin ROW4 = GPIO_NUM_26;
-            static const GPIOPin ROW5 = GPIO_NUM_25;
-            static const GPIOPin ROW6 = GPIO_NUM_33;
-            static const GPIOPin ROW7 = GPIO_NUM_32;
+            static const GPIOPin ROW1 = 12;
+            static const GPIOPin ROW2 = 14;
+            static const GPIOPin ROW3 = 27;
+            static const GPIOPin ROW4 = 26;
+            static const GPIOPin ROW5 = 25;
+            static const GPIOPin ROW6 = 33;
+            static const GPIOPin ROW7 = 32;
 
-            static const GPIOPin ShiftClock = GPIO_NUM_5;
-            static const GPIOPin ShiftData = GPIO_NUM_16;
-            static const GPIOPin ShiftClear = GPIO_NUM_17;
-            static const GPIOPin LatchClock = GPIO_NUM_17;
-            static const GPIOPin MasterClr = GPIO_NUM_18;
+            static const GPIOPin ShiftClock = 5;
+            static const GPIOPin ShiftData = 16;
+            static const GPIOPin ShiftClear = 17;
+            static const GPIOPin LatchClock = 17;
+            static const GPIOPin MasterClr = 18;
 
             std::vector<GPIOPin> rows = {ROW7, ROW6, ROW5, ROW4, ROW3, ROW2, ROW1};
 
