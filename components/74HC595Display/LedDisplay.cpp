@@ -1,4 +1,4 @@
-#include "Beeliners74HC595Display.h"
+#include "LedDisplay.h"
 #include "esphome/core/log.h"
 #include "esphome/core/helpers.h"
 #include "esphome/core/hal.h"
@@ -17,13 +17,13 @@ namespace esphome
     namespace LedDisplay_ns
     {
 
-        static const char *const TAG = "Beeliners74HC595Display";
+        static const char *const TAG = "LedDisplay";
 
         float LedDisplayComponent::get_setup_priority() const { return setup_priority::PROCESSOR; }
 
         void LedDisplayComponent::setup()
         {
-            ESP_LOGCONFIG(TAG, "Setting up Beeliners74HC595Display...");
+            ESP_LOGCONFIG(TAG, "Setting up LedDisplay...");
 
             this->stepsleft_ = 0;
             for (int chip_line = 0; chip_line < this->num_chip_lines_; chip_line++)
@@ -72,7 +72,7 @@ namespace esphome
 
         void LedDisplayComponent::dump_config()
         {
-            ESP_LOGCONFIG(TAG, "Beeliners74HC595Display:");
+            ESP_LOGCONFIG(TAG, "LedDisplay:");
 
             ESP_LOGCONFIG(TAG, "  Scroll Mode: %u", this->scroll_mode_);
             ESP_LOGCONFIG(TAG, "  Scroll Speed: %u", this->scroll_speed_);
