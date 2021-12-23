@@ -64,7 +64,7 @@ namespace esphome
             delayMicroseconds(10);
             digitalWrite(MasterClr, 1); //reset display
 
-            if (m_flipped)
+            if (reverse_)
             {
                 std::reverse(rows.begin(), rows.end());
             }
@@ -137,7 +137,7 @@ namespace esphome
 
             void LedDisplayComponent::display()
             {
-                GPIOPin row;
+                unsigned int row = 0;
                 for (uint8_t line = 0; line < this->get_height_internal(); line++)
                 {
                     for (uint16_t j = 0; j < this->get_width_internal(); j++)
@@ -390,3 +390,4 @@ namespace esphome
 
         } // namespace LedDisplay_ns
     }     // namespace esphome
+}
