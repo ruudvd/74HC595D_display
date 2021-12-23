@@ -188,7 +188,7 @@ namespace esphome
 
             uint16_t pos = x;   // X is starting at 0 top left
             uint8_t subpos = y; // Y is starting at 0 top left
-
+                                /*
             if (color.is_on())
             {
                 this->led_displaybuffer_[subpos / 8][pos] |= (1 << subpos % 8);
@@ -197,12 +197,13 @@ namespace esphome
             {
                 this->led_displaybuffer_[subpos / 8][pos] &= ~(1 << subpos % 8);
             }
+            */
         }
 
         void LedDisplayComponent::send_byte_(uint8_t a_register, uint8_t data)
         {
-            this->write_byte(a_register); // Write register value to MAX
-            this->write_byte(data);       // Followed by actual data
+            //this->write_byte(a_register); // Write register value to MAX
+            //this->write_byte(data);       // Followed by actual data
         }
         /*
         void LedDisplayComponent::send_to_all_(uint8_t a_register, uint8_t data)
@@ -284,9 +285,11 @@ namespace esphome
 
         void LedDisplayComponent::send_char(uint8_t chip, uint8_t data)
         {
+            /*
             // get this character from PROGMEM
             for (uint8_t i = 0; i < 8; i++)
                 this->led_displaybuffer_[0][chip * 8 + i] = progmem_read_byte(&MAX7219_DOT_MATRIX_FONT[data][i]);
+       */
         } // end of send_char
 
         // send one character (data) to position (chip)
