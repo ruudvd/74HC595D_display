@@ -32,6 +32,8 @@ CONFIG_SCHEMA = (
     display.BASIC_DISPLAY_SCHEMA.extend(
         {
             cv.GenerateID(): cv.declare_id(LedDisplayComponent),
+            cv.Optional(CONF_NUM_CHIPS, default=10): cv.int_range(min=1, max=20),
+            cv.Optional(CONF_NUM_CHIP_LINES, default=7): cv.int_range(min=1, max=20),
             cv.Optional(CONF_SCROLL_MODE, default="CONTINUOUS"): cv.enum(
                 SCROLL_MODES, upper=True
             ),
