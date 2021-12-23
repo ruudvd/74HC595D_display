@@ -1,6 +1,7 @@
 #pragma once
 
 #include "esphome/core/component.h"
+#include "esphome/core/hal.h"
 #include "esphome/core/defines.h"
 #include "esphome/components/display/display_buffer.h"
 
@@ -24,7 +25,7 @@ namespace esphome
         using ledDisplay_writer_t = std::function<void(LedDisplayComponent &)>;
 
         class LedDisplayComponent : public PollingComponent,
-                                    public display::DisplayBuffer,
+                                    public display::DisplayBuffer
         {
         public:
             void set_writer(ledDisplay_writer_t &&writer) { this->writer_local_ = writer; };
@@ -111,7 +112,7 @@ namespace esphome
             size_t get_buffer_length_();
             optional<ledDisplay_writer_t> writer_local_{};
 
-        private:
+            // gpio
             static const gpio_num_t ROW1 = GPIO_NUM_12;
             static const gpio_num_t ROW2 = GPIO_NUM_14;
             static const gpio_num_t ROW3 = GPIO_NUM_27;
