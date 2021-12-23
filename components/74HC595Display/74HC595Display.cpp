@@ -3,6 +3,8 @@
 #include "esphome/core/helpers.h"
 #include "esphome/core/hal.h"
 
+#include <Arduino.h>
+
 #define SET_LED(value)                                    \
     digitalWrite(ShiftData, m_inverted ? !value : value); \
     delayMicroseconds(1);                                 \
