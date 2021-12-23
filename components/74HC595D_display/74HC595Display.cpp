@@ -1,4 +1,4 @@
-#include "74HC595D_display.h"
+#include "74HC595Display.h"
 #include "esphome/core/log.h"
 #include "esphome/core/helpers.h"
 #include "esphome/core/hal.h"
@@ -16,13 +16,13 @@ namespace esphome
     namespace LedDisplay_ns
     {
 
-        static const char *const TAG = "74HC595D_display";
+        static const char *const TAG = "74HC595Display";
 
         float LedDisplayComponent::get_setup_priority() const { return setup_priority::PROCESSOR; }
 
         void LedDisplayComponent::setup()
         {
-            ESP_LOGCONFIG(TAG, "Setting up 74HC595D_display...");
+            ESP_LOGCONFIG(TAG, "Setting up 74HC595Display...");
 
             this->stepsleft_ = 0;
             for (int chip_line = 0; chip_line < this->num_chip_lines_; chip_line++)
@@ -71,7 +71,7 @@ namespace esphome
 
         void LedDisplayComponent::dump_config()
         {
-            ESP_LOGCONFIG(TAG, "74HC595D_display:");
+            ESP_LOGCONFIG(TAG, "74HC595Display:");
 
             ESP_LOGCONFIG(TAG, "  Scroll Mode: %u", this->scroll_mode_);
             ESP_LOGCONFIG(TAG, "  Scroll Speed: %u", this->scroll_speed_);

@@ -14,7 +14,7 @@ CONF_SCROLL_MODE = "scroll_mode"
 CONF_REVERSE_ENABLE = "reverse_enable"
 CONF_NUM_CHIP_LINES = "num_chip_lines"
 
-integration_ns = cg.esphome_ns.namespace("74HC595D_display")
+integration_ns = cg.esphome_ns.namespace("74HC595Display")
 
 ScrollMode = integration_ns.enum("ScrollMode")
 SCROLL_MODES = {
@@ -22,7 +22,7 @@ SCROLL_MODES = {
     "STOP": ScrollMode.STOP,
 }
 
-LedDisplay_ns = cg.esphome_ns.namespace("74HC595D_display")
+LedDisplay_ns = cg.esphome_ns.namespace("74HC595Display")
 LedDisplayComponent = LedDisplay_ns.class_(
     "LedDisplayComponent", cg.PollingComponent, display.DisplayBuffer
 )
