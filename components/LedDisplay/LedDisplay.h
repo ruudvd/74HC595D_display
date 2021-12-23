@@ -105,7 +105,6 @@ namespace esphome
             uint16_t old_buffer_size_ = 0;
             ScrollMode scroll_mode_;
             bool invert_ = false;
-            uint8_t bckgrnd_ = 0x0;
             std::vector<std::vector<bool>> led_displaybuffer_;
             uint32_t last_scroll_ = 0;
             uint16_t stepsleft_;

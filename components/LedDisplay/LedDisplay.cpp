@@ -79,6 +79,9 @@ namespace esphome
             ESP_LOGCONFIG(TAG, "  Scroll Speed: %u", this->scroll_speed_);
             ESP_LOGCONFIG(TAG, "  Scroll Dwell: %u", this->scroll_dwell_);
             ESP_LOGCONFIG(TAG, "  Scroll Delay: %u", this->scroll_delay_);
+            ESP_LOGCONFIG(TAG, "  Number of chips: %u", this->num_chips_);
+            ESP_LOGCONFIG(TAG, "  Number of lines: %u", this->num_chip_lines_);
+            ESP_LOGCONFIG(TAG, "  Inverted: %u", this->invert_);
 
             LOG_UPDATE_INTERVAL(this);
         }
@@ -180,7 +183,7 @@ namespace esphome
             { // Extend the display buffer in case required
                 for (int chip_line = 0; chip_line < this->num_chip_lines_; chip_line++)
                 {
-                    this->led_displaybuffer_[chip_line].resize(x + 1, this->bckgrnd_);
+                    this->led_displaybuffer_[chip_line].resize(x + 1, 0);
                 }
             }
 
@@ -221,7 +224,7 @@ namespace esphome
             for (int chip_line = 0; chip_line < this->num_chip_lines_; chip_line++)
             {
                 this->led_displaybuffer_[chip_line].clear();
-                this->led_displaybuffer_[chip_line].resize(get_width_internal(), this->bckgrnd_);
+                this->led_displaybuffer_[chip_line].resize(get_width_internal(), 0);
             }
             if (this->writer_local_.has_value()) // insert Labda function if available
                 (*this->writer_local_)(*this);
@@ -267,7 +270,7 @@ namespace esphome
             {
                 if (this->update_)
                 {
-                    this->led_displaybuffer_[chip_line].push_back(this->bckgrnd_);
+                    this->led_displaybuffer_[chip_line].push_back(0);
                     for (uint16_t i = 0; i < this->stepsleft_; i++)
                     {
                         this->led_displaybuffer_[chip_line].push_back(this->led_displaybuffer_[chip_line].front());
@@ -294,10 +297,10 @@ namespace esphome
         } // end of send_char
 
         // send one character (data) to position (chip)
-
+        /*
         void LedDisplayComponent::send64pixels(uint8_t chip, const uint8_t pixels[8])
         {
-            /*
+            
             for (uint8_t col = 0; col < 8; col++)
             {                                      // RUN THIS LOOP 8 times until column is 7
                                                    // this->enable();                    // start sending by enabling SPI
@@ -342,9 +345,9 @@ namespace esphome
                 // this->disable(); // all done disable SPI
             } // end of for each column
 
-            */
+            
         } // end of send64pixels
-
+*/
         uint8_t LedDisplayComponent::printdigit(const char *str) { return this->printdigit(0, str); }
 
         uint8_t LedDisplayComponent::printdigit(uint8_t start_pos, const char *s)
