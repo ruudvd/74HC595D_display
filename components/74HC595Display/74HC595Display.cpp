@@ -5,11 +5,11 @@
 
 #include <Arduino.h>
 
-#define SET_LED(value)                                    \
-    digitalWrite(ShiftData, m_inverted ? !value : value); \
-    delayMicroseconds(1);                                 \
-    digitalWrite(ShiftClock, true);                       \
-    delayMicroseconds(1);                                 \
+#define SET_LED(value)              \
+    digitalWrite(ShiftData, value); \
+    delayMicroseconds(1);           \
+    digitalWrite(ShiftClock, true); \
+    delayMicroseconds(1);           \
     digitalWrite(ShiftClock, false);
 
 namespace esphome
@@ -151,7 +151,7 @@ namespace esphome
                     {
                     }
                     */
-                    SET_LED(this->led_displaybuffer_[chip_line][j]);
+                    SET_LED(this->led_displaybuffer_[line][j]);
                 }
                 row = rows[line];
                 digitalWrite(LatchClock, true);
@@ -293,6 +293,7 @@ namespace esphome
 
         void LedDisplayComponent::send64pixels(uint8_t chip, const uint8_t pixels[8])
         {
+            /*
             for (uint8_t col = 0; col < 8; col++)
             {                                      // RUN THIS LOOP 8 times until column is 7
                                                    // this->enable();                    // start sending by enabling SPI
@@ -336,7 +337,9 @@ namespace esphome
                     this->send_byte_(MAX7219_REGISTER_NOOP, MAX7219_REGISTER_NOOP);
                 // this->disable(); // all done disable SPI
             } // end of for each column
-        }     // end of send64pixels
+
+            */
+        } // end of send64pixels
 
         uint8_t LedDisplayComponent::printdigit(const char *str) { return this->printdigit(0, str); }
 
