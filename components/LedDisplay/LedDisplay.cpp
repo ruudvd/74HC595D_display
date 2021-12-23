@@ -27,7 +27,7 @@ namespace esphome
             ESP_LOGCONFIG(TAG, "Setting up LedDisplay...");
 
             this->stepsleft_ = 0;
-/*
+
             for (int chip_line = 0; chip_line < this->num_chip_lines_; chip_line++)
             {
                 std::vector<bool> vec(1);
@@ -35,7 +35,7 @@ namespace esphome
                 // Initialize buffer with 0 for display so all non written pixels are blank
                 this->led_displaybuffer_[chip_line].resize(get_width_internal(), 0);
             }
-*/
+
             // set IO to output
             for (auto row : rows)
             {
