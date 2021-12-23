@@ -9,9 +9,9 @@ external_components:
       type: git
       url: https://github.com/ruudvd/74HC595Display.git
       ref: develop
-    components: [ 74HC595Display ]
+    components: [ LedDisplay ]
 
 display:
-  platform: 74HC595Display
+  platform: LedDisplay
 
 ```

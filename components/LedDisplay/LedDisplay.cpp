@@ -14,7 +14,7 @@
 
 namespace esphome
 {
-    namespace LedDisplay_ns
+    namespace LedDisplay
     {
 
         static const char *const TAG = "LedDisplay";
@@ -395,5 +395,5 @@ namespace esphome
         }
 #endif
 
-    } // namespace LedDisplay_ns
+    } // namespace LedDisplay
 } // namespace esphome

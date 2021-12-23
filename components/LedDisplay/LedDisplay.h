@@ -11,7 +11,7 @@
 
 namespace esphome
 {
-    namespace LedDisplay_ns
+    namespace LedDisplay
     {
 
         enum ScrollMode
@@ -134,5 +134,5 @@ namespace esphome
             //  static const int COL_CHAR = 6;
         };
 
-    } // namespace LedDisplay_ns
+    } // namespace LedDisplay
 } // namespace esphome
