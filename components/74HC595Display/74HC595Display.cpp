@@ -135,7 +135,7 @@ namespace esphome
 
             void LedDisplayComponent::display()
             {
-                gpio_num_t row;
+                GPIOPin row;
                 for (uint8_t line = 0; line < this->get_height_internal(); line++)
                 {
                     for (uint16_t j = 0; j < this->get_width_internal(); j++)
