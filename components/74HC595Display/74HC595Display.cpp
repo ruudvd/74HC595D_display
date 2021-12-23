@@ -3,12 +3,12 @@
 #include "esphome/core/helpers.h"
 #include "esphome/core/hal.h"
 
-#define SET_LED(value)                                      \
-    gpio_set_level(ShiftData, m_inverted ? !value : value); \
-    delayMicroseconds(1);                                   \
-    gpio_set_level(ShiftClock, HIGH);                       \
-    delayMicroseconds(1);                                   \
-    gpio_set_level(ShiftClock, LOW);
+#define SET_LED(value)                                    \
+    digitalWrite(ShiftData, m_inverted ? !value : value); \
+    delayMicroseconds(1);                                 \
+    digitalWrite(ShiftClock, true);                       \
+    delayMicroseconds(1);                                 \
+    digitalWrite(ShiftClock, false);
 
 namespace esphome
 {
@@ -151,12 +151,12 @@ namespace esphome
                         SET_LED(this->led_displaybuffer_[chip_line][j]);
                     }
                     row = rows[line];
-                    gpio_set_level(LatchClock, HIGH);
+                    digitalWrite(LatchClock, true);
                     delayMicroseconds(10);
-                    gpio_set_level(LatchClock, LOW);
-                    gpio_set_level(row, HIGH);
+                    digitalWrite(LatchClock, false);
+                    digitalWrite(row, true);
                     delayMicroseconds(2000); //was 1000
-                    gpio_set_level(row, LOW);
+                    digitalWrite(row, false);
                 }
             }
 

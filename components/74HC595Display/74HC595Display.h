@@ -113,21 +113,21 @@ namespace esphome
             optional<ledDisplay_writer_t> writer_local_{};
 
             // gpio
-            static const GPIOPin ROW1 = 12;
-            static const GPIOPin ROW2 = 14;
-            static const GPIOPin ROW3 = 27;
-            static const GPIOPin ROW4 = 26;
-            static const GPIOPin ROW5 = 25;
-            static const GPIOPin ROW6 = 33;
-            static const GPIOPin ROW7 = 32;
+            static const uint8_t ROW1 = 12;
+            static const uint8_t ROW2 = 14;
+            static const uint8_t ROW3 = 27;
+            static const uint8_t ROW4 = 26;
+            static const uint8_t ROW5 = 25;
+            static const uint8_t ROW6 = 33;
+            static const uint8_t ROW7 = 32;
 
-            static const GPIOPin ShiftClock = 5;
-            static const GPIOPin ShiftData = 16;
-            static const GPIOPin ShiftClear = 17;
-            static const GPIOPin LatchClock = 17;
-            static const GPIOPin MasterClr = 18;
+            static const uint8_t ShiftClock = 5;
+            static const uint8_t ShiftData = 16;
+            static const uint8_t ShiftClear = 17;
+            static const uint8_t LatchClock = 17;
+            static const uint8_t MasterClr = 18;
 
-            std::vector<GPIOPin> rows = {ROW7, ROW6, ROW5, ROW4, ROW3, ROW2, ROW1};
+            std::vector<uint8_t> rows = {ROW7, ROW6, ROW5, ROW4, ROW3, ROW2, ROW1};
 
             //  static const int MAX_COLUMNS = 80;
             //  static const int MAX_ROWS = 7;
